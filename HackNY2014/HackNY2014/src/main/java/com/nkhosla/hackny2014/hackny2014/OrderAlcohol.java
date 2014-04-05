@@ -2,6 +2,7 @@ package com.nkhosla.hackny2014.hackny2014;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -14,6 +15,37 @@ public class OrderAlcohol extends Activity {
         setContentView(R.layout.activity_order_alcohol);
     }
 
+    @Override
+    public void onStart(){
+        super.onStart();
+        Log.d("HNY14", "onStart called by alcohol selection");
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        Log.d("HNY14","onPaus called by alcohol");
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        Log.d("HNY14","onResume called by alcohol");
+
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        Log.d("HNY14","onStop called by alcohol");
+
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        Log.d("HNY14","onDestroy called by alcohol");
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -2,6 +2,7 @@ package com.nkhosla.hackny2014.hackny2014;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -12,6 +13,38 @@ public class OrderTobacco extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_tobacco);
+    }
+
+    @Override
+    public void onStart(){
+        super.onStart();
+        Log.d("HNY14", "onStart called by tobacco selection");
+    }
+
+    @Override
+    public void onPause(){
+        super.onPause();
+        Log.d("HNY14","onPaus called by tobacco");
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        Log.d("HNY14","onResume called by tobacco");
+
+    }
+
+    @Override
+    public void onStop(){
+        super.onStop();
+        Log.d("HNY14","onStop called by tobacco");
+
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        Log.d("HNY14","onDestroy called by tobacco");
     }
 
 
