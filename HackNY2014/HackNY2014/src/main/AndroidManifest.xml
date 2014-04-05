@@ -16,6 +16,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="com.nkhosla.hackny2014.hackny2014.ContactSelection"
+            android:label="@string/title_activity_contact_selection" >
+        </activity>
+        <activity
+            android:name="com.nkhosla.hackny2014.hackny2014.OrderFood"
+            android:label="@string/title_activity_order_food" >
+        </activity>
+        <activity
+            android:name="com.nkhosla.hackny2014.hackny2014.OrderAlcohol"
+            android:label="@string/title_activity_order_alcohol" >
+        </activity>
+        <activity
+            android:name="com.nkhosla.hackny2014.hackny2014.OrderTobacco"
+            android:label="@string/title_activity_order_tobacco" >
+        </activity>
+        <activity
+            android:name="com.nkhosla.hackny2014.hackny2014.OrderHouseCleaning"
+            android:label="@string/title_activity_order_house_cleaning" >
+        </activity>
     </application>
 
 </manifest>

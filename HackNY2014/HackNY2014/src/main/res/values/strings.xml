@@ -4,5 +4,10 @@
     <string name="app_name">HackNY2014</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_contact_selection">ContactSelection</string>
+    <string name="title_activity_order_food">OrderFood</string>
+    <string name="title_activity_order_alcohol">OrderAlcohol</string>
+    <string name="title_activity_order_tobacco">OrderTobacco</string>
+    <string name="title_activity_order_house_cleaning">OrderHouseCleaning</string>
 
 </resources>
