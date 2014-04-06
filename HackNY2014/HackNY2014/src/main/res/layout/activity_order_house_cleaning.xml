@@ -1,91 +1,84 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.nkhosla.hackny2014.hackny2014.OrderHouseCleaning"
-    style="@style/AppTheme">
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@drawable/cleandfd">
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/zipCode_clean"
+        android:id="@+id/numBedRoomsText"
+        android:layout_marginTop="36dp"
+        android:hint="# of bedrooms"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:editable="true"
-        android:numeric="integer"
-        android:autoText="false"
-        android:typeface="sans" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffffff"/>
 
-    <NumberPicker
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/numberPicker"
-        android:layout_marginTop="78dp"
-        android:layout_below="@+id/zipCode_clean"
-        android:layout_toLeftOf="@+id/numberPicker2"
-        android:layout_marginRight="46dp" />
-
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/numberPicker2"
-        android:layout_marginRight="82dp"
-        android:layout_alignTop="@+id/numberPicker"
-        android:layout_alignEnd="@+id/zipCode_clean" />
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/numBathroomsText"
+        android:layout_marginTop="34dp"
+        android:hint="# bathrooms (use 0.5)"
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/numBedRoomsText"
+        android:layout_alignStart="@+id/numBedRoomsText" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Number of Bathrooms"
-        android:id="@+id/atextView"
-        android:layout_above="@+id/numberPicker2"
-        android:layout_alignEnd="@+id/numberPicker"
-        android:typeface="sans" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Number of Bedrooms"
-        android:id="@+id/btextView"
-        android:layout_alignTop="@+id/atextView"
-        android:layout_alignStart="@+id/numberPicker2"
-        android:typeface="sans" />
+        android:text="Tap the button to get a quote, and then tap the quote again to accept it and book your cleaning. Your cleaning will happen at 8:30AM.  Stop being lazy!"
+        android:id="@+id/textView"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:singleLine="false"
+        android:textColor="#ffffffff"/>
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Get a Quote!"
-        android:id="@+id/getQuote_cleaning"
-        android:layout_below="@+id/numberPicker"
-        android:layout_marginTop="52dp"
-        android:layout_alignEnd="@+id/btextView"
-        android:layout_alignStart="@+id/atextView"
-        android:onClick="getACleaningQuote" />
+        android:layout_width="fill_parent"
+        android:layout_height="150dp"
+        android:text="Click get a quote below..."
+        android:id="@+id/quoteButton"
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Get a quote...."
-        android:id="@+id/quoteText_cleaning"
-        android:layout_below="@+id/getQuote_cleaning"
-        android:layout_marginTop="32dp"
-        android:layout_alignStart="@+id/getQuote_cleaning"
-        android:layout_alignEnd="@+id/getQuote_cleaning" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Book a Cleaning!"
-        android:id="@+id/button"
+        android:background="#70b6b6b6"
+        android:textColor="#fffffefa"
+        android:textStyle="bold"
+        android:typeface="sans"
+        android:textSize="60dp"
+        android:layout_marginBottom="38dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/zipCode_clean" />
+        android:layout_centerHorizontal="true"
+        android:onClick="quoteButtonWasClicked"/>
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Date"
+        android:id="@+id/cleaningDate_button"
+        android:layout_above="@+id/textView"
+        android:layout_alignEnd="@+id/textView"
+        android:layout_marginBottom="25dp"
+        android:onClick="setADate"
+        android:textColor="#ffffffff"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose a date"
+        android:id="@+id/cleaningDate"
+        android:layout_alignTop="@+id/cleaningDate_button"
+        android:layout_alignStart="@+id/textView"
+        android:layout_alignBottom="@+id/cleaningDate_button"
+        android:layout_toLeftOf="@+id/cleaningDate_button"
+        android:textSize="24dp"
+        android:textColor="#ffffffff"
+        android:gravity="center_vertical|center_horizontal" />
+
 </RelativeLayout>

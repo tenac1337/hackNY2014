@@ -13,7 +13,7 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
+/**
 public class Restaurant {
     String mTitle;
     String mPhoneNumber;
@@ -181,3 +181,4 @@ public class OrderFood extends ListActivity {
     }
 
 }
+**/
