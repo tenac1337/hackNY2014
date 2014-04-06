@@ -126,36 +126,9 @@ public class OrderHouseCleaning extends Activity {
         }
     };
 
-    // Make a new trust manager
-    X509TrustManager tm = new X509TrustManager() {
-
-        public void checkClientTrusted(X509Certificate[] xcs, String string) throws CertificateException {
-        }
-
-        public void checkServerTrusted(X509Certificate[] xcs, String string) throws CertificateException {
-        }
-
-        public X509Certificate[] getAcceptedIssuers() {
-            return null;
-        }
-    };
 
 
 
-    public static HttpClient createHttpClient()
-    {
-        HttpParams params = new BasicHttpParams();
-        HttpProtocolParams.setVersion(params, HttpVersion.HTTP_1_1);
-        HttpProtocolParams.setContentCharset(params, HTTP.DEFAULT_CONTENT_CHARSET);
-        HttpProtocolParams.setUseExpectContinue(params, true);
-
-        SchemeRegistry schReg = new SchemeRegistry();
-        schReg.register(new Scheme("http", PlainSocketFactory.getSocketFactory(), 80));
-        schReg.register(new Scheme("https", SSLSocketFactory.getSocketFactory(), 443));
-        ClientConnectionManager conMgr = new ThreadSafeClientConnManager(params, schReg);
-
-        return new DefaultHttpClient(conMgr, params);
-    }
 
     public HttpClient getNewHttpClient() {
         try {
