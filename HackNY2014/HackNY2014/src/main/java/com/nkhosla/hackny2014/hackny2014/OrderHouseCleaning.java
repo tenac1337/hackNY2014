@@ -74,7 +74,7 @@ public class OrderHouseCleaning extends Activity {
     }
 
    public float getACleaningQuote(){
-       // declare yo' variables upfront, beyotch!
+       // declare yo' return variables upfront, beyotch!
        float quoteValue = 0;
 
 
