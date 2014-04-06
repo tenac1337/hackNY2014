@@ -1,10 +1,13 @@
 package com.nkhosla.hackny2014.hackny2014;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import java.util.HashMap;
 
 
 public class OrderFood extends Activity {
@@ -13,6 +16,8 @@ public class OrderFood extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_food);
+        Intent intent = getIntent();
+        HashMap<String, String> hashMap = (HashMap<String, String>) intent.getSerializableExtra("initial_dictionary");
     }
 
     @Override

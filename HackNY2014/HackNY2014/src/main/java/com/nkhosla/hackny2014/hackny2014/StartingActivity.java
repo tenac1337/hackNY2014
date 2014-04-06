@@ -51,13 +51,18 @@ public class StartingActivity extends Activity {
         String selectedDate = DateFormat.getDateInstance().format(dp.getCalendarView().getDate());
 
         HashMap<String,String> initialDictionary = new HashMap<String,String>();
+        initialDictionary.add("first_name", firstName.getText().toString());
+        initialDictionary.add("last_name", lastName.getText().toString());
+        initialDictionary.add("event_address_line_1", eventAddressLine1.getText().toString());
+        initialDictionary.add("event_address_line_2", eventAddressLine2.getText().toString());
+        initialDictionary.add("event_address_city", eventAddressCity.getText().toString());
+        initialDictionary.add("event_state", eventState.getText().toString());
+        initialDictionary.add("event_zip_code", eventZipCode.getText().toString());
+        initialDictionary.add("event_guest_number", eventGuestNumber.getText().toString());
 
-
-
-
-
-        Intent chooseContactIntent = new Intent(StartingActivity.this, ContactSelection.class);
-        startActivity(chooseContactIntent);
+        Intent getFoodIntent = new Intent(StartingActivity.this, OrderFood.class);
+        getFoodIntent.putExtra("initial_dictionary", initialDictionary);
+        startActivity(getFoodIntent);
         //Toast.makeText(TimeDate.this, "User selected " + strDateTime + "Time", Toast.LENGTH_LONG).show(); //Generate a toast only if you want
         //finish();   // If you want to continue on that TimeDateActivity
     }
