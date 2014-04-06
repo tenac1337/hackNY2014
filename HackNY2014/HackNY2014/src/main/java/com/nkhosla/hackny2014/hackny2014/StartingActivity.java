@@ -1,6 +1,5 @@
 package com.nkhosla.hackny2014.hackny2014;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -10,23 +9,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-
-import android.widget.CheckBox;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TimePicker;
 import android.widget.Toast;
-
-import java.text.DateFormat;
-import java.util.Calendar;
-
-import java.util.HashMap;
-
 
 import com.fourmob.datetimepicker.date.DatePickerDialog;
 import com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener;
 import com.sleepbot.datetimepicker.time.RadialPickerLayout;
 import com.sleepbot.datetimepicker.time.TimePickerDialog;
+
+import java.util.Calendar;
+import java.util.HashMap;
 
 
 
@@ -88,12 +80,12 @@ public class StartingActivity extends FragmentActivity implements OnDateSetListe
 
     @Override
     public void onDateSet(DatePickerDialog datePickerDialog, int year, int month, int day) {
-        Toast.makeText(StartingActivity.this, "new date:" + year + "-" + month + "-" + day, Toast.LENGTH_LONG).show();
+        Toast.makeText(StartingActivity.this, "New Date:" + " " + month + "-" + day + "-" + year, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
-        Toast.makeText(StartingActivity.this, "new time:" + hourOfDay + "-" + minute, Toast.LENGTH_LONG).show();
+        Toast.makeText(StartingActivity.this, "New Time:" + " " + hourOfDay + ":" + minute, Toast.LENGTH_LONG).show();
     }
 
     private void passInitialDictionaryActivity(){
