@@ -1,10 +1,20 @@
 package com.nkhosla.hackny2014.hackny2014;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.TimePicker;
+
+import java.text.DateFormat;
+import java.util.HashMap;
 
 
 public class StartingActivity extends Activity {
@@ -13,6 +23,43 @@ public class StartingActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_starting);
+
+        Button startButton = (Button) findViewById(R.id.dStartButton);
+        startButton.setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+
+                passInitialDictionaryActivity();
+
+            }
+        });
+    }
+
+    private void passInitialDictionaryActivity(){
+        Log.d("HNY14", "passInitialDictionaryActivity called");
+        EditText firstName = (EditText) findViewById(R.id.dFirstName);
+        EditText lastName = (EditText) findViewById(R.id.dLastName);
+        EditText eventAddressLine1 = (EditText) findViewById(R.id.dEventAddressLine1);
+        EditText eventAddressLine2 = (EditText) findViewById(R.id.dEventAddressLine2);
+        EditText eventAddressCity = (EditText) findViewById(R.id.dEventAddressCity);
+        EditText eventState = (EditText) findViewById(R.id.dEventState);
+        EditText eventZipCode = (EditText) findViewById(R.id.dEventZipCode);
+        EditText eventGuestNumber = (EditText) findViewById(R.id.dGuestNumber);
+        DatePicker dp = (DatePicker) findViewById(R.id.datePicker);
+        TimePicker tp = (TimePicker) findViewById(R.id.timePicker);
+        String selectedDate = DateFormat.getDateInstance().format(dp.getCalendarView().getDate());
+
+        HashMap<String,String> initialDictionary = new HashMap<String,String>();
+
+
+
+
+
+        Intent chooseContactIntent = new Intent(StartingActivity.this, ContactSelection.class);
+        startActivity(chooseContactIntent);
+        //Toast.makeText(TimeDate.this, "User selected " + strDateTime + "Time", Toast.LENGTH_LONG).show(); //Generate a toast only if you want
+        //finish();   // If you want to continue on that TimeDateActivity
     }
 
     @Override
@@ -24,7 +71,7 @@ public class StartingActivity extends Activity {
     @Override
     public void onPause(){
         super.onPause();
-        Log.d("HNY14","onPaus called by start");
+        Log.d("HNY14","onPause called by start");
     }
 
     @Override

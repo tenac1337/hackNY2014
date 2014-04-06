@@ -95,14 +95,14 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="City:"
-        android:id="@+id/dCityLabel"
+        android:id="@+id/dEventAddressCityLabel"
         android:layout_marginTop="0dp"
         android:layout_gravity="center_horizontal" />
 
     <EditText
         android:layout_width="182dp"
         android:layout_height="wrap_content"
-        android:id="@+id/dCity"
+        android:id="@+id/dEventAddressCity"
         android:layout_gravity="center_horizontal"
         android:textSize="15dp" />
 
@@ -118,7 +118,7 @@
     <EditText
         android:layout_width="182dp"
         android:layout_height="wrap_content"
-        android:id="@+id/dState"
+        android:id="@+id/dEventState"
         android:layout_gravity="center_horizontal"
         android:textSize="15dp"/>
 
@@ -135,7 +135,7 @@
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
-        android:id="@+id/dZipCode"
+        android:id="@+id/dEventZipCode"
         android:layout_gravity="center_horizontal"
         android:textSize="15dp" />
 
