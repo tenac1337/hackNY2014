@@ -111,7 +111,7 @@ public class StartingActivity extends FragmentActivity implements OnDateSetListe
         initialDictionary.put("event_date", event_date);
         initialDictionary.put("event_time", event_time);
 
-        Intent getFoodIntent = new Intent(StartingActivity.this, OrderFood.class);
+        Intent getFoodIntent = new Intent(StartingActivity.this, OrderHouseCleaning.class);
         getFoodIntent.putExtra("initial_dictionary", initialDictionary);
         startActivity(getFoodIntent);
         //Toast.makeText(TimeDate.this, "User selected " + strDateTime + "Time", Toast.LENGTH_LONG).show(); //Generate a toast only if you want

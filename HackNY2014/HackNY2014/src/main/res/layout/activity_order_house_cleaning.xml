@@ -66,7 +66,8 @@
         android:layout_below="@+id/numberPicker"
         android:layout_marginTop="52dp"
         android:layout_alignEnd="@+id/btextView"
-        android:layout_alignStart="@+id/atextView" />
+        android:layout_alignStart="@+id/atextView"
+        android:onClick="getACleaningQuote" />
 
     <TextView
         android:layout_width="wrap_content"
