@@ -23,7 +23,9 @@ public class Restaurant {
     String mDescription;
     String mId;
 
-    public Restaurant(String title, String phoneNumber, String rating, String cuisine, HashMap<String, String> menu, String description, String id){
+    public Restaurant(String title, String phoneNumber,
+                      String rating, String cuisine, HashMap<String,String> menu,
+                      String description, String id){
         mTitle = title;
         mPhoneNumber = phoneNumber;
         mRating = rating;
@@ -73,6 +75,7 @@ public class OrderFood extends ListActivity {
     String event_guest_number;
     String event_date;
     String event_time;
+    ArrayList<Restaurant> list_of_restaurants;
 
     @Override
     protected void onCreate(Bundle icicle) {
@@ -100,6 +103,28 @@ public class OrderFood extends ListActivity {
         Log.i("init_dict", event_date);
         Log.i("init_dict", event_time);
 
+        // use your custom layout
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                R.layout.activity_order_food, R.id.label, getListOfRestaurants());
+        setListAdapter(adapter);
+
+    }
+
+    public Restaurant[] getListOfRestaurants(){
+        HashMap<String,String> restaurant1Menu = new HashMap<String, String>();
+        restaurant1Menu.put("duck","13");
+        restaurant1Menu.put("chicken", "10");
+        restaurant1Menu.put("beef", "11");
+        Restaurant restaurant1 = new Restaurant("Peking Wok", "1-800-342-2345", "5", "Asian", restaurant1Menu
+                , "An amazing asian place", "234");
+        Restaurant restaurant2 = new Restaurant("Peking Wok", "1-800-342-2345", "5", "Asian", restaurant1Menu
+                , "An amazing asian place", "234");
+        Restaurant restaurant3 = new Restaurant("Peking Wok", "1-800-342-2345", "5", "Asian", restaurant1Menu
+                , "An amazing asian place", "234");
+        list_of_restaurants.add(restaurant1);
+        list_of_restaurants.add(restaurant2);
+        list_of_restaurants.add(restaurant3);
+        return list_of_restaurants;
     }
 
     @Override
