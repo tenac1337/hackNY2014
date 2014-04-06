@@ -152,7 +152,8 @@
         android:layout_height="wrap_content"
         android:text="Choose a Time"
         android:id="@+id/chooseADate"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:onClick="selectATime" />
 
 
     <TextView
@@ -169,7 +170,8 @@
         android:layout_height="wrap_content"
         android:text="Choose a Time"
         android:id="@+id/chooseATime"
-        android:layout_gravity="center_horizontal" />
+        android:layout_gravity="center_horizontal"
+        android:onClick="selectADate" />
 
 
 

@@ -3,26 +3,47 @@ package com.nkhosla.hackny2014.hackny2014;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.HashMap;
 
 
-public class StartingActivity extends Activity {
+import com.fourmob.datetimepicker.date.DatePickerDialog;
+import com.fourmob.datetimepicker.date.DatePickerDialog.OnDateSetListener;
+import com.sleepbot.datetimepicker.time.RadialPickerLayout;
+import com.sleepbot.datetimepicker.time.TimePickerDialog;
+
+
+
+public class StartingActivity extends FragmentActivity implements OnDateSetListener, TimePickerDialog.OnTimeSetListener  {
+    final Calendar calendar = Calendar.getInstance();
+
+    final DatePickerDialog datePickerDialog = DatePickerDialog.newInstance(this, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH), isVibrate());
+    final TimePickerDialog timePickerDialog = TimePickerDialog.newInstance(this, calendar.get(Calendar.HOUR_OF_DAY) ,calendar.get(Calendar.MINUTE), false, false);
+
+    public static final String DATEPICKER_TAG = "datepicker";
+    public static final String TIMEPICKER_TAG = "timepicker";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_starting);
+
+
 
         Button startButton = (Button) findViewById(R.id.dStartButton);
         startButton.setOnClickListener(new OnClickListener() {
@@ -36,6 +57,43 @@ public class StartingActivity extends Activity {
         });
     }
 
+
+    public void selectADate(View v){
+        datePickerDialog.setVibrate(isVibrate());
+        datePickerDialog.setYearRange(1985, 2028);
+        //datePickerDialog.setCloseOnSingleTapDay(isCloseOnSingleTapDay());
+        datePickerDialog.show(getSupportFragmentManager(), DATEPICKER_TAG);
+    }
+
+
+    public void selectATime(View v){
+        timePickerDialog.setVibrate(isVibrate());
+        //timePickerDialog.setCloseOnSingleTapMinute(isCloseOnSingleTapMinute());
+        timePickerDialog.show(getSupportFragmentManager(), TIMEPICKER_TAG);
+    }
+
+    private boolean isVibrate() {
+        return true;
+    }
+
+    private boolean isCloseOnSingleTapDay() {
+        return false;
+    }
+
+    private boolean isCloseOnSingleTapMinute() {
+        return false;
+    }
+
+    @Override
+    public void onDateSet(DatePickerDialog datePickerDialog, int year, int month, int day) {
+        Toast.makeText(StartingActivity.this, "new date:" + year + "-" + month + "-" + day, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
+        Toast.makeText(StartingActivity.this, "new time:" + hourOfDay + "-" + minute, Toast.LENGTH_LONG).show();
+    }
+
     private void passInitialDictionaryActivity(){
         Log.d("HNY14", "passInitialDictionaryActivity called");
         EditText firstName = (EditText) findViewById(R.id.dFirstName);
@@ -46,9 +104,9 @@ public class StartingActivity extends Activity {
         EditText eventState = (EditText) findViewById(R.id.dEventState);
         EditText eventZipCode = (EditText) findViewById(R.id.dEventZipCode);
         EditText eventGuestNumber = (EditText) findViewById(R.id.dGuestNumber);
-        DatePicker dp = (DatePicker) findViewById(R.id.datePicker);
-        TimePicker tp = (TimePicker) findViewById(R.id.timePicker);
-        String selectedDate = DateFormat.getDateInstance().format(dp.getCalendarView().getDate());
+        //DatePicker dp = (DatePicker) findViewById(R.id.datePicker);
+        //TimePicker tp = (TimePicker) findViewById(R.id.timePicker);
+        //String selectedDate = DateFormat.getDateInstance().format(dp.getCalendarView().getDate());
 
         HashMap<String,String> initialDictionary = new HashMap<String,String>();
 
