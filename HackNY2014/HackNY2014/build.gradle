@@ -25,6 +25,4 @@ dependencies {
 
     compile 'com.github.flavienlaurent.datetimepicker:library:0.0.1'
 
-
-
 }
