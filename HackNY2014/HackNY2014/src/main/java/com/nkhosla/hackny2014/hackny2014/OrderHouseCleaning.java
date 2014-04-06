@@ -86,7 +86,7 @@ public class OrderHouseCleaning extends Activity {
        HttpClient httpclient = new DefaultHttpClient();
 
        try {
-           HttpResponse  response = httpclient.execute(request);
+           HttpResponse response = httpclient.execute(request);
 
            System.out.println(response);
            Log.d("HNY14",""+response);
