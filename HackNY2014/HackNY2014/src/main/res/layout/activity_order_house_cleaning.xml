@@ -6,11 +6,85 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context="com.nkhosla.hackny2014.hackny2014.OrderHouseCleaning">
+    tools:context="com.nkhosla.hackny2014.hackny2014.OrderHouseCleaning"
+    style="@style/AppTheme">
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/zipCode_clean"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:editable="true"
+        android:numeric="integer"
+        android:autoText="false"
+        android:typeface="sans" />
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numberPicker"
+        android:layout_marginTop="78dp"
+        android:layout_below="@+id/zipCode_clean"
+        android:layout_toLeftOf="@+id/numberPicker2"
+        android:layout_marginRight="46dp" />
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numberPicker2"
+        android:layout_marginRight="82dp"
+        android:layout_alignTop="@+id/numberPicker"
+        android:layout_alignEnd="@+id/zipCode_clean" />
 
     <TextView
-        android:text="@string/hello_world"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:text="Number of Bathrooms"
+        android:id="@+id/atextView"
+        android:layout_above="@+id/numberPicker2"
+        android:layout_alignEnd="@+id/numberPicker"
+        android:typeface="sans" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Number of Bedrooms"
+        android:id="@+id/btextView"
+        android:layout_alignTop="@+id/atextView"
+        android:layout_alignStart="@+id/numberPicker2"
+        android:typeface="sans" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get a Quote!"
+        android:id="@+id/getQuote_cleaning"
+        android:layout_below="@+id/numberPicker"
+        android:layout_marginTop="52dp"
+        android:layout_alignEnd="@+id/btextView"
+        android:layout_alignStart="@+id/atextView" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Get a quote...."
+        android:id="@+id/quoteText_cleaning"
+        android:layout_below="@+id/getQuote_cleaning"
+        android:layout_marginTop="32dp"
+        android:layout_alignStart="@+id/getQuote_cleaning"
+        android:layout_alignEnd="@+id/getQuote_cleaning" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Book a Cleaning!"
+        android:id="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignEnd="@+id/zipCode_clean" />
 </RelativeLayout>

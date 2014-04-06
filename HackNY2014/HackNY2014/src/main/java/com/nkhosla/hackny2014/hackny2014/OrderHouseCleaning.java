@@ -2,12 +2,31 @@ package com.nkhosla.hackny2014.hackny2014;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpUriRequest;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.protocol.HTTP;
+import org.apache.http.util.EntityUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+
 
 public class OrderHouseCleaning extends Activity {
+
+    private String handybookUsername = "f6d322818cd888d8ced915b43e87e83d";
+    private String handybookPassword = "b81e8959593c4391de9dd344d9813c32";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +43,7 @@ public class OrderHouseCleaning extends Activity {
     @Override
     public void onPause(){
         super.onPause();
-        Log.d("HNY14","onPaus called by cleaning");
+        Log.d("HNY14","onPause called by cleaning");
     }
 
     @Override
@@ -46,6 +65,34 @@ public class OrderHouseCleaning extends Activity {
         super.onDestroy();
         Log.d("HNY14","onDestroy called by cleaning");
     }
+
+   public float getACleaningQuote(){
+       // declare yo' variables upfront, beyotch!
+       float quoteValue = 0;
+
+
+       HttpUriRequest request = new HttpGet(); // Or HttpPost(), depends on your needs
+       String credentials = handybookUsername + ":" + handybookPassword;
+       String base64EncodedCredentials = Base64.encodeToString(credentials.getBytes(), Base64.NO_WRAP);
+       request.addHeader("Authorization", "Basic " + base64EncodedCredentials);
+
+       HttpClient httpclient = new DefaultHttpClient();
+
+       try {
+           httpclient.execute(request);
+
+           System.out.println(request);
+       }
+       catch(Exception e) {
+           Log.d("HNY14","error in ordering get quote");
+           Log.d("HNY14", ""+e);
+       }
+// You'll need to handle the exceptions thrown by execute()
+
+       return quoteValue;
+
+
+   }
 
 
     @Override
