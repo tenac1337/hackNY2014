@@ -9,11 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TimePicker;
 
-import java.text.DateFormat;
 import java.util.HashMap;
 
 
@@ -46,19 +43,19 @@ public class StartingActivity extends Activity {
         EditText eventState = (EditText) findViewById(R.id.dEventState);
         EditText eventZipCode = (EditText) findViewById(R.id.dEventZipCode);
         EditText eventGuestNumber = (EditText) findViewById(R.id.dGuestNumber);
-        DatePicker dp = (DatePicker) findViewById(R.id.datePicker);
-        TimePicker tp = (TimePicker) findViewById(R.id.timePicker);
-        String selectedDate = DateFormat.getDateInstance().format(dp.getCalendarView().getDate());
+        //DatePicker dp = (DatePicker) findViewById(R.id.datePicker);
+        //TimePicker tp = (TimePicker) findViewById(R.id.timePicker);
+        //String selectedDate = DateFormat.getDateInstance().format(dp.getCalendarView().getDate());
 
         HashMap<String,String> initialDictionary = new HashMap<String,String>();
-        initialDictionary.add("first_name", firstName.getText().toString());
-        initialDictionary.add("last_name", lastName.getText().toString());
-        initialDictionary.add("event_address_line_1", eventAddressLine1.getText().toString());
-        initialDictionary.add("event_address_line_2", eventAddressLine2.getText().toString());
-        initialDictionary.add("event_address_city", eventAddressCity.getText().toString());
-        initialDictionary.add("event_state", eventState.getText().toString());
-        initialDictionary.add("event_zip_code", eventZipCode.getText().toString());
-        initialDictionary.add("event_guest_number", eventGuestNumber.getText().toString());
+        initialDictionary.put("first_name", firstName.getText().toString());
+        initialDictionary.put("last_name", lastName.getText().toString());
+        initialDictionary.put("event_address_line_1", eventAddressLine1.getText().toString());
+        initialDictionary.put("event_address_line_2", eventAddressLine2.getText().toString());
+        initialDictionary.put("event_address_city", eventAddressCity.getText().toString());
+        initialDictionary.put("event_state", eventState.getText().toString());
+        initialDictionary.put("event_zip_code", eventZipCode.getText().toString());
+        initialDictionary.put("event_guest_number", eventGuestNumber.getText().toString());
 
         Intent getFoodIntent = new Intent(StartingActivity.this, OrderFood.class);
         getFoodIntent.putExtra("initial_dictionary", initialDictionary);

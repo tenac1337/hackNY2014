@@ -11,13 +11,37 @@ import java.util.HashMap;
 
 
 public class OrderFood extends Activity {
+    String first_name;
+    String last_name;
+    String event_address_line_1;
+    String event_address_line_2;
+    String event_address_city;
+    String event_state;
+    String event_zip_code;
+    String event_guest_number;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_food);
-        Intent intent = getIntent();
-        HashMap<String, String> hashMap = (HashMap<String, String>) intent.getSerializableExtra("initial_dictionary");
+        Intent receiveInitialDictIntent = getIntent();
+        HashMap<String, String> init_dict = (HashMap<String, String>) receiveInitialDictIntent.getSerializableExtra("initial_dictionary");
+
+        first_name = init_dict.get("first_name");
+        last_name = init_dict.get("last_name");
+        event_address_line_1 = init_dict.get("event_address_line_1");
+        event_address_line_2 = init_dict.get("event_address_line_2");
+        event_address_city = init_dict.get("event_address_city");
+        event_state = init_dict.get("event_state");
+        event_zip_code = init_dict.get("event_zip_code");
+        event_guest_number = init_dict.get("event_guest_number");
+
+        Log.i("init_dict", event_address_line_1);
+        Log.i("init_dict", event_address_line_2);
+        Log.i("init_dict", event_address_city);
+        Log.i("init_dict", event_state);
+        Log.i("init_dict", event_zip_code);
+
     }
 
     @Override
