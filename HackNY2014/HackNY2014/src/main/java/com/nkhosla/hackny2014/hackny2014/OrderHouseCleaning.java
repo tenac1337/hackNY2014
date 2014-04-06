@@ -86,9 +86,10 @@ public class OrderHouseCleaning extends Activity {
        HttpClient httpclient = new DefaultHttpClient();
 
        try {
-           httpclient.execute(request);
+           HttpResponse  response = httpclient.execute(request);
 
-           System.out.println(request);
+           System.out.println(response);
+           Log.d("HNY14",""+response);
        }
        catch(Exception e) {
            Log.d("HNY14","error in ordering get quote");

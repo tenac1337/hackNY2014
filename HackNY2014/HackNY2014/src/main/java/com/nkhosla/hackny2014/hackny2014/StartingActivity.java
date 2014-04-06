@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.util.Calendar;
+
 import java.util.HashMap;
 
 
@@ -109,13 +111,18 @@ public class StartingActivity extends FragmentActivity implements OnDateSetListe
         //String selectedDate = DateFormat.getDateInstance().format(dp.getCalendarView().getDate());
 
         HashMap<String,String> initialDictionary = new HashMap<String,String>();
+        initialDictionary.put("first_name", firstName.getText().toString());
+        initialDictionary.put("last_name", lastName.getText().toString());
+        initialDictionary.put("event_address_line_1", eventAddressLine1.getText().toString());
+        initialDictionary.put("event_address_line_2", eventAddressLine2.getText().toString());
+        initialDictionary.put("event_address_city", eventAddressCity.getText().toString());
+        initialDictionary.put("event_state", eventState.getText().toString());
+        initialDictionary.put("event_zip_code", eventZipCode.getText().toString());
+        initialDictionary.put("event_guest_number", eventGuestNumber.getText().toString());
 
-
-
-
-
-        Intent chooseContactIntent = new Intent(StartingActivity.this, ContactSelection.class);
-        startActivity(chooseContactIntent);
+        Intent getFoodIntent = new Intent(StartingActivity.this, OrderFood.class);
+        getFoodIntent.putExtra("initial_dictionary", initialDictionary);
+        startActivity(getFoodIntent);
         //Toast.makeText(TimeDate.this, "User selected " + strDateTime + "Time", Toast.LENGTH_LONG).show(); //Generate a toast only if you want
         //finish();   // If you want to continue on that TimeDateActivity
     }
