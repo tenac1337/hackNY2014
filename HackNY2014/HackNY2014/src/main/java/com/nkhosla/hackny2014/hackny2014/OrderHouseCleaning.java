@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
@@ -25,11 +26,12 @@ import java.io.IOException;
 
 public class OrderHouseCleaning extends Activity {
 
+
     private String handybookUsername = "f6d322818cd888d8ced915b43e87e83d";
     private String handybookPassword = "b81e8959593c4391de9dd344d9813c32";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_house_cleaning);
     }
@@ -64,6 +66,11 @@ public class OrderHouseCleaning extends Activity {
     public void onDestroy(){
         super.onDestroy();
         Log.d("HNY14","onDestroy called by cleaning");
+    }
+
+
+    public void onDialogDateSet(int year, int monthOfYear, int dayOfMonth) {
+       Log.d("","cat");
     }
 
    public float getACleaningQuote(){
