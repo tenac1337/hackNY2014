@@ -20,8 +20,6 @@ import com.sleepbot.datetimepicker.time.TimePickerDialog;
 import java.util.Calendar;
 import java.util.HashMap;
 
-
-
 public class StartingActivity extends FragmentActivity implements OnDateSetListener, TimePickerDialog.OnTimeSetListener  {
     final Calendar calendar = Calendar.getInstance();
 
@@ -30,14 +28,13 @@ public class StartingActivity extends FragmentActivity implements OnDateSetListe
 
     public static final String DATEPICKER_TAG = "datepicker";
     public static final String TIMEPICKER_TAG = "timepicker";
-
+    String event_date = calendar.get(Calendar.MONTH) + "-" + calendar.get(Calendar.DAY_OF_MONTH) + "-" + calendar.get(Calendar.YEAR);
+    String event_time = calendar.get(Calendar.HOUR_OF_DAY) + ":" + calendar.get(Calendar.MINUTE);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_starting);
-
-
 
         Button startButton = (Button) findViewById(R.id.dStartButton);
         startButton.setOnClickListener(new OnClickListener() {
@@ -80,12 +77,12 @@ public class StartingActivity extends FragmentActivity implements OnDateSetListe
 
     @Override
     public void onDateSet(DatePickerDialog datePickerDialog, int year, int month, int day) {
-        Toast.makeText(StartingActivity.this, "New Date:" + " " + month + "-" + day + "-" + year, Toast.LENGTH_LONG).show();
+        Toast.makeText(StartingActivity.this, "Date Selected:" + " " + month + "-" + day + "-" + year, Toast.LENGTH_LONG).show();
     }
 
     @Override
     public void onTimeSet(RadialPickerLayout view, int hourOfDay, int minute) {
-        Toast.makeText(StartingActivity.this, "New Time:" + " " + hourOfDay + ":" + minute, Toast.LENGTH_LONG).show();
+        Toast.makeText(StartingActivity.this, "Time Selected:" + " " + hourOfDay + ":" + minute, Toast.LENGTH_LONG).show();
     }
 
     private void passInitialDictionaryActivity(){
@@ -111,6 +108,8 @@ public class StartingActivity extends FragmentActivity implements OnDateSetListe
         initialDictionary.put("event_state", eventState.getText().toString());
         initialDictionary.put("event_zip_code", eventZipCode.getText().toString());
         initialDictionary.put("event_guest_number", eventGuestNumber.getText().toString());
+        initialDictionary.put("event_date", event_date);
+        initialDictionary.put("event_time", event_time);
 
         Intent getFoodIntent = new Intent(StartingActivity.this, OrderFood.class);
         getFoodIntent.putExtra("initial_dictionary", initialDictionary);

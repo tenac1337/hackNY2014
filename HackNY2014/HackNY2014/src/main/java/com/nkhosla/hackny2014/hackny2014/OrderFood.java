@@ -1,16 +1,68 @@
 package com.nkhosla.hackny2014.hackny2014;
 
 import android.app.Activity;
+import android.app.ListActivity;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
+public class Restaurant {
+    String mTitle;
+    String mPhoneNumber;
+    String mRating;
+    String mCuisine;
+    HashMap<String, String> mMenu;
+    String mDescription;
+    String mId;
 
-public class OrderFood extends Activity {
+    public Restaurant(String title, String phoneNumber, String rating, String cuisine, HashMap<String, String> menu, String description, String id){
+        mTitle = title;
+        mPhoneNumber = phoneNumber;
+        mRating = rating;
+        mCuisine = cuisine;
+        mMenu = menu;
+        mDescription = description;
+        mId = id;
+    }
+
+    public String getTitle() {
+        return mTitle;
+    }
+
+    public String getPhoneNumber() {
+        return mPhoneNumber;
+    }
+
+    public String getRating() {
+        return mRating;
+    }
+
+    public String getCuisine() {
+        return mCuisine;
+    }
+
+    public HashMap<String, String> getMenu() {
+        return mMenu;
+    }
+
+    public String getDescription() {
+        return mDescription;
+    }
+
+    public String getId() {
+        return mId;
+    }
+}
+
+public class OrderFood extends ListActivity {
     String first_name;
     String last_name;
     String event_address_line_1;
@@ -19,10 +71,12 @@ public class OrderFood extends Activity {
     String event_state;
     String event_zip_code;
     String event_guest_number;
+    String event_date;
+    String event_time;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
         setContentView(R.layout.activity_order_food);
         Intent receiveInitialDictIntent = getIntent();
         HashMap<String, String> init_dict = (HashMap<String, String>) receiveInitialDictIntent.getSerializableExtra("initial_dictionary");
@@ -35,12 +89,16 @@ public class OrderFood extends Activity {
         event_state = init_dict.get("event_state");
         event_zip_code = init_dict.get("event_zip_code");
         event_guest_number = init_dict.get("event_guest_number");
+        event_date = init_dict.get("event_date");
+        event_time = init_dict.get("event_time");
 
         Log.i("init_dict", event_address_line_1);
         Log.i("init_dict", event_address_line_2);
         Log.i("init_dict", event_address_city);
         Log.i("init_dict", event_state);
         Log.i("init_dict", event_zip_code);
+        Log.i("init_dict", event_date);
+        Log.i("init_dict", event_time);
 
     }
 
